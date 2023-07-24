@@ -23,6 +23,7 @@ const Layout = () => {
       />
       <Box flexGrow={1}>
         <NavBar
+          isNonMobile={isNonMobile}
           user={data || {}}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}

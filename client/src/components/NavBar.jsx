@@ -24,7 +24,12 @@ import FlexBetween from "./FlexBetween";
 import profileImage from "../assets/profile.png";
 import MenuItem from "@mui/material/MenuItem";
 
-const NavBar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
+const NavBar = ({
+  user,
+  isSidebarOpen,
+  setIsSidebarOpen,
+  isNonMobile = { isNonMobile },
+}) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
@@ -45,7 +50,12 @@ const NavBar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
         boxShadow: "none",
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-between" }}>
+      <Toolbar
+        sx={{
+          justifyContent: "space-between",
+          p: isNonMobile ? "8px 16px" : "0 8px",
+        }}
+      >
         {/* Left Side */}
         <FlexBetween>
           <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
@@ -64,7 +74,7 @@ const NavBar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
           </FlexBetween>
         </FlexBetween>
         {/* Right Side */}
-        <FlexBetween gap="1.5rem">
+        <FlexBetween gap={isNonMobile ? "1.5rem" : "0"}>
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
               <DarkModeOutlined sx={{ fontSize: "24" }} />

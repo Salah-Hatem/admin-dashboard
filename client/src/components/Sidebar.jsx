@@ -132,7 +132,9 @@ const Sidebar = ({
             <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
-                  <Typography fontWeight="600">SHOPMART</Typography>
+                  <Typography fontWeight="600" fontSize="1.5rem">
+                    SHOPMART
+                  </Typography>
                 </Box>
                 {!isNonMobile && (
                   <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
