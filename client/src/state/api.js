@@ -5,13 +5,22 @@ export const api = createApi({
     baseUrl: import.meta.env.VITE_REACT_APP_BASE_URL,
   }),
   reducerPath: "adminApi",
-  tagTypes: ["User"],
+  tagTypes: ["User", "Products", "Customers"],
   endpoints: (build) => ({
     getUser: build.query({
-      query: (id) => `general/user/${id}`,
+      query: (id) => `general/user/${id}`, //making a get request to that endpoint and that get request is handled by the server
       providesTags: ["User"],
+    }),
+    getProducts: build.query({
+      query: () => "client/products",
+      providesTags: ["Products"],
+    }),
+    getCustomers: build.query({
+      query: () => "client/customers",
+      providesTags: ["Customers"],
     }),
   }),
 });
 
-export const { useGetUserQuery } = api;
+export const { useGetUserQuery, useGetProductsQuery, useGetCustomersQuery } =
+  api;
