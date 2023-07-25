@@ -22,32 +22,33 @@ const Products = () => {
             "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
           }}
         >
-          {data.map(
-            ({
-              _id,
-              name,
-              description,
-              price,
-              rating,
-              category,
-              supply,
-              stat,
-            }) => {
-              return (
-                <Product
-                  key={_id}
-                  _id={_id}
-                  name={name}
-                  description={description}
-                  price={price}
-                  rating={rating}
-                  category={category}
-                  supply={supply}
-                  stat={stat[0]}
-                />
-              );
-            }
-          )}
+          {data &&
+            data.map(
+              ({
+                _id,
+                name,
+                description,
+                price,
+                rating,
+                category,
+                supply,
+                stat,
+              }) => {
+                return (
+                  <Product
+                    key={_id}
+                    _id={_id}
+                    name={name}
+                    description={description}
+                    price={price}
+                    rating={rating}
+                    category={category}
+                    supply={supply}
+                    stat={stat[0]}
+                  />
+                );
+              }
+            )}
         </Box>
       ) : (
         <CircularProgress />
