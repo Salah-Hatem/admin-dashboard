@@ -7,7 +7,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "./scenes/dashboard";
 import Layout from "./scenes/layout/Layout";
 import Products from "./scenes/products/Products";
-import Customers from "./scenes/customers/customers";
+import Customers from "./scenes/customers/Customers";
 import Transactions from "./scenes/transactions/Transactions";
 import Geography from "./scenes/geography/geography";
 import Overview from "./scenes/overview/Overview";
