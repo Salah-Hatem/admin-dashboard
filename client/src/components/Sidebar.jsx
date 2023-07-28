@@ -132,7 +132,7 @@ const Sidebar = ({
             <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
-                  <Typography fontWeight="600" fontSize="1.5rem">
+                  <Typography fontWeight="600" fontSize="1.5rem" variant="h4">
                     SHOPMART
                   </Typography>
                 </Box>
@@ -182,7 +182,10 @@ const Sidebar = ({
                       >
                         {icon}
                       </ListItemIcon>
-                      <ListItemText primary={text} />
+                      <ListItemText
+                        sx={{ fontSize: "0.6rem" }}
+                        primary={text}
+                      />
                       {active === lowerCaseText && (
                         <ChevronRightOutlined sx={{ ml: "auto" }} />
                       )}

@@ -1,4 +1,4 @@
-import { useTheme } from "@mui/material";
+import { CircularProgress, useTheme } from "@mui/material";
 import { useGetSalesQuery } from "../state/api";
 import { useMemo } from "react";
 import { ResponsiveLine } from "@nivo/line";
@@ -44,7 +44,7 @@ const OveviewChart = ({ isDashboard = false, view }) => {
     return [[totalSalesLine], [totalUnitsLine]];
   }, [data]);
 
-  if (!data || isLoading) return "Loading...";
+  if (!data || isLoading) return <CircularProgress />;
 
   return (
     <ResponsiveLine
