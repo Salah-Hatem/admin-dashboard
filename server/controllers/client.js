@@ -2,6 +2,7 @@ import Products from "../models/Products.js";
 import ProductStats from "../models/ProductStats.js";
 import Transaction from "../models/Transaction.js";
 import User from "../models/User.js";
+import getCountryISO3 from "country-iso-2-to-3";
 
 export const getProducts = async (req, res) => {
   try {
@@ -38,7 +39,7 @@ export const getTransactions = async (req, res) => {
     const generateSort = (sort) => {
       const sortObj = JSON.parse(sort);
       const formattedSort = {
-        [sortObj.field]: (sortObj.sort == "asc" ? 1 : -1),
+        [sortObj.field]: sortObj.sort == "asc" ? 1 : -1,
       };
       return formattedSort;
     };
@@ -97,3 +98,27 @@ export const getTransactions = async (req, res) => {
 //     res.status(404).json({ message: error.message });
 //   }
 // };
+
+export const getGeography = async (req, res) => {
+  try {
+    const users = await User.find();
+    const mappedLocations = users.reduce((acc, { country }) => {
+      const countryISO3 = getCountryISO3(country);
+      if (!acc[countryISO3]) {
+        acc[countryISO3] = 0;
+      }
+      acc[countryISO3]++;
+      return acc;
+    }, {});
+
+    const formattedLocations = Object.entries(mappedLocations).map(
+      ([country, count]) => {
+        return { id: country, value: count };
+      }
+    );
+
+    res.status(200).json(formattedLocations);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
