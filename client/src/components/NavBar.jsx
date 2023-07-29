@@ -21,7 +21,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setMode } from "../state";
 import FlexBetween from "./FlexBetween";
-import profileImage from "../assets/profile.png";
+import profileImage from "../assets/Profile.png";
 import MenuItem from "@mui/material/MenuItem";
 
 const NavBar = ({
