@@ -9,7 +9,7 @@ import Layout from "./scenes/layout/Layout";
 import Products from "./scenes/products/Products";
 import Customers from "./scenes/customers/Customers";
 import Transactions from "./scenes/transactions/Transactions";
-import Geography from "./scenes/geography/geography";
+import Geography from "./scenes/geography/Geography";
 import Overview from "./scenes/overview/Overview";
 import Daily from "./scenes/daily/Daily";
 import Monthly from "./scenes/monthly/Monthly";
